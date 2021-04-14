@@ -1,0 +1,129 @@
+/*
+http://paletton.com/#uid=13z0u0k9O8E0Bvn3VZgmQCWVg55
+*/
+
+#h1Title {
+    color: #FFFFFF
+}
+
+body {
+  margin: 1%;
+  background-color: #31383F;
+  color: #9FA1A2;
+}
+
+#controlPanel {
+  margin-bottom: 20px;
+}
+
+#score {
+    padding: 10px;
+    background-color: #20272D;
+}
+
+.block {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.block-header {
+    margin-top: 20px;
+}
+
+.bar {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    /* To render border neatly */
+    margin: 0px 0 10px -1px;
+}
+
+.barFlex {
+    flex-grow: 1;
+}
+
+.barFixed8 {
+    width: 12%;
+}
+
+.barFixed4 {
+    width: 24%;
+}
+
+.barFixed2 {
+    width: 49%;
+}
+
+.barFixed1 {
+    width: 99%;
+}
+
+.note-100 {
+    width: 100%;
+    min-width: 5em;
+}
+
+.note-50 {
+    width: 50%;
+    min-width: 5em;
+}
+.note-25 {
+    width: 25%;
+}
+
+.part {
+    padding: 0px 5px 0px 5px;
+    display: flex;
+}
+
+.part-Title {
+    background-color: #800000;
+    color: #FFFAFA;
+    border: 1px solid gray;
+}
+
+.part-Author {
+    background-color: #20372D;
+    color: #FFFAFA;
+}
+
+.part-Header {
+    background-color: #000E1A;
+    color: #9FA1A2;
+    border: 1px solid gray;
+}
+
+.part-Ch {
+    color: #1188F3;
+}
+.part-Ly {
+    color: #FBFBFB;
+}
+.part-X {
+    color: #FFFFFF;
+    margin-bottom: -10px;
+}
+.part-U {
+    color: #FFFFFF;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+.part-DU {
+    color: #FFFFFF;
+    margin-top: -12px;
+    margin-bottom: -10px;
+}
+.part-BV {
+    color: #FFCE00;
+}
+
+textarea{
+    width:30%;
+    font-family: SimSun
+}

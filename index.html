@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <title>DDB和弦节奏谱生成器</title>
+</head>
+<body>
+
+<h1 id="h1Title">DDB和弦节奏谱生成器</h1>
+
+<div id="controlPanel">
+  <div>
+    <label for="scoreScrollSpeed">Scroll Speed</label>
+    <input type="range" id="scoreScrollSpeed" min="1" value="5" max="10" step="1" oninput="setScoreScrollSpeed(value)">
+  </div>
+  
+  <div>
+    <label for="scoreFontSize">Font Size</label>
+    <input type="range" id="scoreFontSize" min="1" value="1" max="2" step="0.1" oninput="setScoreFontSize(value)">
+  </div>
+  
+  <div>
+    Default Key:
+    <span id="scoreDefaultKey">C</span>
+    <button onClick="scoreDefaultKey(score.scale_transpose - 1)">-</button>
+    <button onClick="scoreDefaultKey(0)">C</button>
+    <button onClick="scoreDefaultKey(score.scale_transpose + 1)">+</button>
+  </div>
+
+  <div>
+    Key Transpose:
+    <span id="scoreKeyTranspose">0</span>
+    <button onClick="setScoreKeyTranspose(score.transpose - 1)">-</button>
+    <button onClick="setScoreKeyTranspose(0)">0</button>
+    <button onClick="setScoreKeyTranspose(score.transpose + 1)">+</button>
+  </div>
+
+  <div>
+    Bar Width:
+    <button onClick="setBarClasses('bar')">Default</button>
+    <button onClick="setBarClasses('bar barFlex')">Flex</button>
+    <button onClick="setBarClasses('bar barFixed8')">Fixed 8</button>
+    <button onClick="setBarClasses('bar barFixed4')">Fixed 4</button>
+    <button onClick="setBarClasses('bar barFixed2')">Fixed 2</button>
+    <button onClick="setBarClasses('bar barFixed1')">Fixed 1</button>
+  </div>
+  <div>
+    Input:
+  </div>
+  <div>
+    <textarea id="ttInput" clos="100" rows="20">
+
+-- 《just Title》
+
+@@ author: ddb
+
+## Intro
+
+Ch |E|D|A|A|
+
+## Verse
+
+Ch |Am7|D|A|Asus2|
+Ly |This is a|Template|For a music|Score|
+X  |xx|xxx|x&cap;xx|xxxx|
+U  |&ndash;&ndash;|&ndash;3&ndash;|&shy;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ndash;&ndash;|&ndash;&ndash;&ndash;&ndash;|
+DU |_|_|_|&ndash;&ndash;&ndash;&ndash;|
+
+Ch |D -|D|A|A|
+Ly |As easy as|Markdown format|You can write a|Score|
+X  |xx|xxxx|xxx|x|
+U  |&ndash;&ndash;|&shy;&nbsp;&nbsp;&nbsp;&ndash;&ndash;|&shy;&nbsp;&nbsp;&ndash;&ndash;|_|
+DU |&ndash;&ndash;|&ndash;&ndash;&ndash;&ndash;|&ndash;&ndash;&ndash;|_|
+
+## Chord
+
+Ch |E|D|A|E|
+Ly |Tap the screen and|it starts scrolling|Tap it again and as you expect it|... stops. Wow!|
+X  |0xx|xxxx|xxx|x|
+U  |&ndash;&nbsp;&nbsp;&ndash;|&shy;&nbsp;&nbsp;&nbsp;&ndash;&ndash;|&ndash;&ndash;|_|
+DU |&ndash;&ndash;&ndash;|&ndash;&ndash;&ndash;&ndash;|&ndash;&ndash;&ndash;|_|
+
+## Ending
+
+Ch |E|D|A|A|
+
+    </textarea>
+  </div>
+  <div>
+    <button onClick="setScoreText()">generate</button>
+  </div>
+</div>
+
+<div id="score" onClick="onClickScore()">
+</div>
+
+<script src="score.js"></script>
+<div id="scoreText" style="display:none">
+</div>
+<script>
+
+var score = parseScore(document.getElementById('scoreText').innerText);
+score.scale = parseChord('A');
+renderScore(score);
+
+</script>
+
+</body>
+</html>
+
