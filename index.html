@@ -24,17 +24,17 @@
   <div>
     Default Key:
     <span id="scoreDefaultKey">C</span>
-    <button onClick="scoreDefaultKey(score.scale_transpose - 1)">-</button>
+    <button onClick="scoreDefaultKey(scale_transpose - 1)">-</button>
     <button onClick="scoreDefaultKey(0)">C</button>
-    <button onClick="scoreDefaultKey(score.scale_transpose + 1)">+</button>
+    <button onClick="scoreDefaultKey(scale_transpose + 1)">+</button>
   </div>
 
   <div>
     Key Transpose:
     <span id="scoreKeyTranspose">0</span>
-    <button onClick="setScoreKeyTranspose(score.transpose - 1)">-</button>
+    <button onClick="setScoreKeyTranspose(transpose - 1)">-</button>
     <button onClick="setScoreKeyTranspose(0)">0</button>
-    <button onClick="setScoreKeyTranspose(score.transpose + 1)">+</button>
+    <button onClick="setScoreKeyTranspose(transpose + 1)">+</button>
   </div>
 
   <div>
@@ -64,23 +64,23 @@ Ch |E|D|A|A|
 
 Ch |Am7|D|A|Asus2|
 Ly |This is a|Template|For a music|Score|
-X  |xx|xxx|x&cap;xx|xxxx|
-U  |&ndash;&ndash;|&ndash;3&ndash;|&shy;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&ndash;&ndash;|&ndash;&ndash;&ndash;&ndash;|
-DU |_|_|_|&ndash;&ndash;&ndash;&ndash;|
+X  |xx|xxx|x∩xx|xxxx|
+U  |——|—3—|  ——|————|
+DU |  |   |    |————|
 
 Ch |D -|D|A|A|
 Ly |As easy as|Markdown format|You can write a|Score|
 X  |xx|xxxx|xxx|x|
-U  |&ndash;&ndash;|&shy;&nbsp;&nbsp;&nbsp;&ndash;&ndash;|&shy;&nbsp;&nbsp;&ndash;&ndash;|_|
-DU |&ndash;&ndash;|&ndash;&ndash;&ndash;&ndash;|&ndash;&ndash;&ndash;|_|
+U  |——|  ——| ——| |
+DU |——|————|———| |
 
 ## Chord
 
 Ch |E|D|A|E|
 Ly |Tap the screen and|it starts scrolling|Tap it again|... stops. Wow!|
-X  |0xx|xxxx|xxx|x|
-U  |&ndash;&nbsp;&nbsp;&ndash;|&shy;&nbsp;&nbsp;&nbsp;&ndash;&ndash;|&ndash;&ndash;|_|
-DU |&ndash;&ndash;&ndash;|&ndash;&ndash;&ndash;&ndash;|&ndash;&ndash;&ndash;|_|
+X  |xx∩x|xxxx|xx·x|x|
+U  |—— —|  ——| —  | |
+DU |—— —|————|——  | |
 
 ## Ending
 
@@ -109,4 +109,3 @@ renderScore(score);
 
 </body>
 </html>
-

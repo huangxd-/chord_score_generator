@@ -80,16 +80,20 @@ body {
 .part {
     padding: 0px 5px 0px 5px;
     display: flex;
+    /* display space */
+    white-space: pre;
+    /* set equal byte width */
+    font-family: Consolas;
 }
 
 .part-Title {
-    background-color: #800000;
+    background-color: #FF4500;
     color: #FFFAFA;
     border: 1px solid gray;
 }
 
 .part-Author {
-    background-color: #20372D;
+    background-color: #2E8B57;
     color: #FFFAFA;
 }
 
@@ -106,17 +110,16 @@ body {
     color: #FBFBFB;
 }
 .part-X {
-    color: #FFFFFF;
-    margin-bottom: -10px;
+    color: #00FF00;
 }
 .part-U {
-    color: #FFFFFF;
-    margin-top: -10px;
+    color: #00FF00;
+    margin-top: -8px;
     margin-bottom: -10px;
 }
 .part-DU {
-    color: #FFFFFF;
-    margin-top: -12px;
+    color: #00FF00;
+    margin-top: -5px;
     margin-bottom: -10px;
 }
 .part-BV {
@@ -125,5 +128,5 @@ body {
 
 textarea{
     width:30%;
-    font-family: SimSun
+    font-family: Consolas;
 }

@@ -4,6 +4,10 @@ var scoreScrollSpeed;
 var scoreFontSize;
 var scoreContainer = document.getElementById('score');
 var scoreContent;
+var bar_cla = 'bar';
+var score;
+var scale_transpose = 0;
+var transpose = 0;
 
 // C, C#/Db, D, D#/Eb, E, F, F#/Gb, G, G#/Ab, A, A#/Bb, B
 var rootToNum = new Map([
@@ -44,8 +48,6 @@ var numToRoot = new Map([
 function Score(title, scale) {
   this.title = title;
   this.scale = scale;
-  this.scale_transpose = 0;
-  this.transpose = 0;
   this.blocks = new Array();
 }
 
@@ -79,7 +81,7 @@ function Chord(root, tone, on) {
   this.tone = tone;
   this.on = on;
   this.getDisplayValue = function() {
-    var t = transposeChord(score.scale, this, score.transpose);
+    var t = transposeChord(score.scale, this, transpose);
     return t.root + t.tone + (t.on ? '/' + t.on : '');
   }
 }
@@ -122,17 +124,19 @@ function setScoreScrollSpeed(n) {
 
 function setScoreKeyTranspose(offset) {
   if (offset < -11 || offset > 11) return;
-  score.transpose = offset;
+  transpose = offset;
   document.getElementById('scoreKeyTranspose').innerText = offset;
   renderScore(score);
+  setBarClasses(bar_cla)
 }
 
 function scoreDefaultKey(offset) {
   if (offset < -11 || offset > 11) return;
-  score.scale_transpose = offset;   
+  scale_transpose = offset;   
   score.scale = parseChord(numToRoot.get(offset));
   document.getElementById('scoreDefaultKey').innerText = numToRoot.get(offset);
   renderScore(score);
+  setBarClasses(bar_cla)
 }
 
 function setScoreText() {
@@ -140,6 +144,7 @@ function setScoreText() {
   var score = parseScore(document.getElementById('ttInput').value);
   score.scale = parseChord('C');
   renderScore(score);
+  setBarClasses(bar_cla)
 }
 
 function loadScore(name) {
@@ -153,7 +158,7 @@ function loadScore(name) {
 
 function parseScore(scoreStr) {
   // Treat more than 1 empty lines as block separater.
-  var score = new Score();
+  score = new Score();
   scoreStr.split(/\n\n+/).forEach(b => score.blocks.push(parseBlock(b)));
   return score;
 }
@@ -173,11 +178,10 @@ function parsePart(partStr) {
   partName = partName === '@@' ? 'Author' : partName;
   partName = partName === '##' ? 'Header' : partName;
   var part = new Part(partName);
-  partStr.substr(headerIndex).split('|').map(b => b.trim()).filter(b => b)
+  partStr.substr(headerIndex).split('|').map(b => b.trim() == '' ? b.trim() : b).filter(b => b)
     .map(b => b === '_' ? '' : b)
     .map(b => parseBar(partName, b))
     .forEach(b => part.bars.push(b));
-  console.log(part)
   return part;
 }
 
@@ -282,6 +286,7 @@ function renderBar(barContainer, partName, bar, barIdx, partIdx) {
 }
 
 function setBarClasses(classes) {
+  bar_cla = classes
   var bars = document.getElementsByClassName('bar');
   for (var i = 0; i < bars.length; i++) {
     bars[i].className = classes;
@@ -290,4 +295,3 @@ function setBarClasses(classes) {
 
 setScoreFontSize(document.getElementById('scoreFontSize').value);
 setScoreScrollSpeed(document.getElementById('scoreScrollSpeed').value);
-
