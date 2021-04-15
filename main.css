@@ -83,7 +83,7 @@ body {
     /* display space */
     white-space: pre;
     /* set equal byte width */
-    font-family: Menlo;
+    font-family: Courier New;
 }
 
 .part-Title {
@@ -128,5 +128,5 @@ body {
 
 textarea{
     width:30%;
-    font-family: Menlo;
+    font-family: Courier New;
 }
